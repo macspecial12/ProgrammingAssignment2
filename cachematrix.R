@@ -1,8 +1,14 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Put comments here that give an overall description of what your functions do
+## makeCacheMatrix - creates a special "matrix" object that can cache its inverse matrix. It contains accessor methods for
+## fetching (GET) and saving (SET) the inverted matrix
+
+## cacheSolve - fetches a copy of the saved inverted matrix if it exists. If it does nt exist, then it saves a copy of the 
+## inverted matrix that was passed in. If a cached inverted matrix exists then it compares it to the matrix sent it via 
+## matrix multiplication to see if they are the same. If they are the same, then the cached version is returned. If they 
+## are different then a new inverted matrix is generated, saved to cache and then returned to the calling function.
 
 ## Write a short comment describing this function
-## This function creates a special "matrix" object that can cache its inverse matrix
+## This function 
 
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
@@ -27,8 +33,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ##If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-    #get inverted cached matrix
-    inv <- x$getinv()
+    inv <- x$getinv() #get inverted cached matrix
         
     if(is.null(inv)) {
         message("...inverted matrix does not exist in cache")
